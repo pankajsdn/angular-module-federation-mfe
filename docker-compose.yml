@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  shell-app:
+    build:
+      context: ./shell-app
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    container_name: shell_app
+  feature1-app:
+    build:
+      context: ./feature1-app
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    container_name: feature1_app
