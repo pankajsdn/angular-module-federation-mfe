@@ -14,8 +14,10 @@ FROM nginx:alpine
 
 COPY --from=build /app/dist/mfe1/ /usr/share/nginx/html
 
-# Copy custom Nginx configuration to overwrite the main nginx.conf
+# Ensure no old Nginx configs are present and copy our new one.
+RUN rm -f /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY custom-nginx.conf /etc/nginx/nginx.conf
+RUN echo "Copied custom-nginx.conf to /etc/nginx/nginx.conf"
 
 EXPOSE 80
 
