@@ -14,3 +14,21 @@ services:
     ports:
       - "5000:80"
     container_name: feature1_app
+  pod1-ui:
+    build:
+      context: ./smartPods/pod1/pod1-ui
+      dockerfile: Dockerfile
+    ports:
+      - "6001:80" # pod1-ui's Nginx runs on port 80 in container
+    container_name: pod1_ui
+    depends_on:
+      - pod1-api # Optional: if UI needs API to be up first for some reason
+  pod1-api:
+    build:
+      context: ./smartPods/pod1/pod1-api
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000" # pod1-api Express server runs on port 3000 in container
+    container_name: pod1_api
+    # environment: # Example if you need to pass environment variables
+      # - NODE_ENV=development

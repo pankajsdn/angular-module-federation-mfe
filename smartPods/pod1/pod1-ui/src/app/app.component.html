@@ -1,0 +1,21 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <button (click)="fetchData()">Fetch Data from Pod1 API</button>
+
+  <div *ngIf="apiData" style="margin-top: 20px; padding: 10px; border: 1px solid green;">
+    <h3>Data from API:</h3>
+    <pre>{{ apiData | json }}</pre>
+  </div>
+
+  <div *ngIf="error" style="margin-top: 20px; padding: 10px; border: 1px solid red; color: red;">
+    <h3>Error:</h3>
+    <p>{{ error }}</p>
+  </div>
+
+  <hr>
+  <p>This is the root component of pod1-ui. It can also host a router-outlet for its own federated module below.</p>
+  <!-- This is where the Pod1UiComponent (exposed via Module Federation) would typically be routed -->
+  <router-outlet></router-outlet>
+</div>
