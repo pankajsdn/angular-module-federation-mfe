@@ -10,7 +10,8 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 # Ensure the output path in angular.json matches "dist/pod1-ui"
-RUN npm run build
+# Also list the contents of /app and /app/dist after build to help debug
+RUN npm run build && echo "--- Listing /app contents after build ---" && ls -la /app && echo "--- Listing /app/dist contents after build ---" && ls -la /app/dist && echo "--- Listing /app/dist/pod1-ui contents if it exists ---" && ls -la /app/dist/pod1-ui || echo "/app/dist/pod1-ui not found or build failed before this point"
 
 # Stage 2: Serve the application with Nginx
 FROM nginx:alpine
