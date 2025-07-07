@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package*.json ./
 # Install Angular CLI globally within the build stage if you use 'ng' commands directly
 # RUN npm install -g @angular/cli@~13.3.0
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY . .
 # Ensure the output path in angular.json matches "dist/pod1-ui"
