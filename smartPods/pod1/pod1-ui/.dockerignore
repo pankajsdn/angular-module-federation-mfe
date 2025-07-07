@@ -12,7 +12,7 @@ dist
 
 # Ignore Dockerfile (it's used by Docker, not copied into the image)
 Dockerfile
-custom-nginx.conf
+# custom-nginx.conf # This was incorrectly ignoring our Nginx config
 
 # Ignore any local environment files
 .env
