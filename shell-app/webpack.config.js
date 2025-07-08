@@ -38,7 +38,7 @@ module.exports = {
         // For hosts (please adjust)
         remotes: {
             "mfe1": "http://localhost:5000/remoteEntry.js",
-
+            "pod1Ui": "http://localhost:6001/remoteEntry.js"
         },
 
         shared: share({
